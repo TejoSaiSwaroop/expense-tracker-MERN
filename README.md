@@ -1,3 +1,9 @@
+
+<h1> In Order to run the app just</h1>
+Make sure to add your mongodb url and react api url in a file named in .env in the parent folder. Cheers! 
+<h1> npm install </h1>
+<h1> npm run dev </h1>
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
