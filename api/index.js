@@ -4,7 +4,7 @@ require('dotenv').config();
 const Transaction = require('./models/Transaction.js');
 const mongoose = require('mongoose');
 const app = express();
-
+const port = process.env.PORT || 4000;
 
 app.use(cors());
 app.use(express.json());
@@ -14,6 +14,7 @@ app.get('/api/test', (req, res) => {
 app.post('/api/transaction', async (req, res) => {
     await mongoose.connect(process.env.MONGO_URL);
     const {price , name, description, datetime} = req.body;
+   
     const transaction = await Transaction.create({
        price,
        name,
@@ -28,6 +29,7 @@ app.get('/api/transactions', async (req, res) => {
     const transactions = await Transaction.find();
     res.json(transactions);
 });
+app.listen(port, () => {
+    console.log(`listening on port ${port}`);
+});
 
-
-app.listen(4000);
